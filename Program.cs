@@ -1,6 +1,6 @@
 ﻿using System;
 
-int[] times = {800, 1200, 1600, 2000};
+int[] times = [12, 800, 1200, 1600, 2000];
 int diff = 0;
 
 Console.WriteLine("Enter current GMT");
@@ -24,7 +24,7 @@ foreach (int val in times)
     }
     else
     {
-        time = time.Insert(0, "0:0");
+        time = time.Insert(2, ":");
     }
 
     Console.Write($"{time} ");
@@ -46,7 +46,7 @@ else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0)
     /* Adjust the times by adding the difference, keeping the value within 24 hours */
     for (int i = 0; i < times.Length; i++) 
     {
-        times[i] = ((times[i] + diff)) % 2400;
+        times[i] = (times[i] + diff) % 2400;
     }
 } 
 else 
@@ -56,7 +56,7 @@ else
     /* Adjust the times by adding the difference, keeping the value within 24 hours */
     for (int i = 0; i < times.Length; i++) 
     {
-        times[i] = ((times[i] + diff)) % 2400;
+        times[i] = (times[i] + diff) % 2400;
     }
 }
 
